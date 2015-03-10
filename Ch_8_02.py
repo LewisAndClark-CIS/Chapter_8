@@ -1,7 +1,7 @@
 class TV(object):
     def volume(volume=50):
         
-        print("Max = 100, Min: = 0, Current Volume ="+str(volume))
+        print("Max = 100, Min: = 0, Current Volume = "+str(volume))
         volume=int(input("What would you like the volume to be? "))
         
         while volume > 100 or volume < 0:
@@ -14,7 +14,7 @@ class TV(object):
         return volume
 
     def channel(channel=25):
-        print("Max = 50, Min = Aux, Current Channel ="+str(channel))
+        print("Max = 50, Min = Aux, Current Channel = "+str(channel))
         channel = input("Enter your channel: ")
         try:
             channel=channel.upper()
@@ -27,9 +27,10 @@ class TV(object):
             while int(channel) > 50 or int(channel) <1:
                 if int(channel) > 50:
                     print("Out of range. Resetting to 25.")
+                    channel=25
                 elif int(channel) < 1:
                     print("Out of range. Resetting to 25.")
-                channel = 25
+                    channel = 25
             print("Channel is "+str(channel)+".")
         except ValueError:
             if channel!="AUX":
@@ -46,7 +47,6 @@ class TV(object):
 
 def main(volume, channel):
     choice=0
-    print(str(channel))
     print("Welcome to your T.V.")
     while choice !=4:
         print("""
@@ -59,7 +59,7 @@ T.V. options:
         if choice == 1:
             volume=TV.volume(volume)
         elif choice==2:
-            channel==TV.channel(channel)
+            channel=TV.channel(channel)
         elif choice == 3:
             TV.status(volume,channel)
         elif choice ==4:
